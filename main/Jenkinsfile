@@ -9,47 +9,31 @@ pipeline {
         }
         stage('Build') {
             steps {
+                // Assuming 'PES1UG22AM915-1' is another job or task you want to build
+                // Ensure this job is defined in Jenkins if this line is to be used
                 build 'PES1UG22AM915-1'
+
+                // Compile the program
                 sh 'g++ your_program.cpp -o output'
-    stages {
-        stage('Build') {
-            steps {
-                script {
-                    sh 'g++ -o PES1UG22AM915-1 your_program.cpp'
-                }
             }
         }
         stage('Test') {
             steps {
-
+                // Execute the program
                 sh './output'
-
-                script {
-                    sh './PES1UG22AM915-1'
-                }
-
             }
         }
         stage('Deploy') {
             steps {
-
-                echo 'Deploy'
-
+                // Deployment step, simplified for demonstration
                 echo 'Deploying...'
-
             }
         }
     }
     post {
         failure {
-
+            // This will mark the build as failed if any of the stages fail
             error 'Pipeline failed'
-
-            echo 'Pipeline failed'
-
-        }
-    }
-}
         }
     }
 }

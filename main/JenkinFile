@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    sh 'g++ -o PES1UG22AM915-1 your_program.cpp'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    sh './PES1UG22AM915-1'
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+            }
+        }
+    }
+    post {
+        failure {
+            echo 'Pipeline failed'
+        }
+    }
+}

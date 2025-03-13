@@ -1,7 +1,5 @@
 pipeline {
     agent any
-<<<<<<< HEAD
-
     stages {
         stage('Clone repository') {
             steps {
@@ -13,44 +11,42 @@ pipeline {
             steps {
                 build 'PES1UG22AM915-1'
                 sh 'g++ your_program.cpp -o output'
-=======
     stages {
         stage('Build') {
             steps {
                 script {
                     sh 'g++ -o PES1UG22AM915-1 your_program.cpp'
                 }
->>>>>>> f423ee4df96348afdb68397d77dd70112d6823d9
             }
         }
         stage('Test') {
             steps {
-<<<<<<< HEAD
+
                 sh './output'
-=======
+
                 script {
                     sh './PES1UG22AM915-1'
                 }
->>>>>>> f423ee4df96348afdb68397d77dd70112d6823d9
+
             }
         }
         stage('Deploy') {
             steps {
-<<<<<<< HEAD
+
                 echo 'Deploy'
-=======
+
                 echo 'Deploying...'
->>>>>>> f423ee4df96348afdb68397d77dd70112d6823d9
+
             }
         }
     }
     post {
         failure {
-<<<<<<< HEAD
+
             error 'Pipeline failed'
-=======
+
             echo 'Pipeline failed'
->>>>>>> f423ee4df96348afdb68397d77dd70112d6823d9
+
         }
     }
 }

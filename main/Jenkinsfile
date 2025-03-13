@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'g++ -o PES1UG22AM915-1 your_program.cpp'
+                    sh 'g++ -o PES1UG22AM915-1 PES1UG22AM915_Jenkins/main/your_program.cpp'
                 }
             }
         }
